@@ -3583,7 +3583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 94f0e958739ed2047973629dbb6a5dba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4177283474916826128, guid: 94f0e958739ed2047973629dbb6a5dba, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -18322,6 +18322,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1303085531697024087, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1206874426333947015, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -18332,31 +18336,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4177283474916826128, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f3681e1840140284f83d8bdc1db5d510, type: 2}
     - target: {fileID: 4320098735860348617, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
+      propertyPath: m_RootBone
+      value: 
+      objectReference: {fileID: 1399172058}
+    - target: {fileID: 4320098735860348617, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: -0.0000005364418
+      value: 0.00000074505806
       objectReference: {fileID: 0}
     - target: {fileID: 4320098735860348617, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: 0.09439719
+      value: 0.094397604
       objectReference: {fileID: 0}
     - target: {fileID: 4320098735860348617, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: 6.1837926
+      value: 6.18379
       objectReference: {fileID: 0}
     - target: {fileID: 4320098735860348617, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 0.30577073
+      value: 0.3057709
       objectReference: {fileID: 0}
     - target: {fileID: 4320098735860348617, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 0.6599699
+      value: 0.6599693
       objectReference: {fileID: 0}
     - target: {fileID: 4320098735860348617, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
       propertyPath: m_AABB.m_Extent.z
@@ -18485,7 +18493,7 @@ GameObject:
   - component: {fileID: 894744469}
   - component: {fileID: 894744468}
   m_Layer: 0
-  m_Name: Horse
+  m_Name: Old Horse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28594,6 +28602,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5576606286073255814, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
   m_PrefabInstance: {fileID: 891888883}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1399172058 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5581954863045594850, guid: fc9e4450a080b6b48b831afb3ec18527, type: 3}
+  m_PrefabInstance: {fileID: 891888883}
+  m_PrefabAsset: {fileID: 0}
 --- !u!136 &1399172059
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -29985,7 +29998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1471854469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36100,7 +36113,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 755c16b64aa34a44f896b390a325bd59, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f3681e1840140284f83d8bdc1db5d510, type: 2}
+      objectReference: {fileID: 2100000, guid: 511befd5cddd22a49abac479a9b1f5d2, type: 2}
     - target: {fileID: 919132149155446097, guid: 755c16b64aa34a44f896b390a325bd59, type: 3}
       propertyPath: m_Name
       value: sword
@@ -36787,12 +36800,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7823293702887809713, guid: 1a577a30c282691479cac6eff50b108e, type: 3}
+      propertyPath: m_RootBone
+      value: 
+      objectReference: {fileID: 1828082006}
+    - target: {fileID: -7823293702887809713, guid: 1a577a30c282691479cac6eff50b108e, type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: -0.0007019341
+      value: -0.00070127845
       objectReference: {fileID: 0}
     - target: {fileID: -7823293702887809713, guid: 1a577a30c282691479cac6eff50b108e, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: -0.11124611
+      value: -0.11124599
       objectReference: {fileID: 0}
     - target: {fileID: -7823293702887809713, guid: 1a577a30c282691479cac6eff50b108e, type: 3}
       propertyPath: m_AABB.m_Center.z
@@ -36804,7 +36821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7823293702887809713, guid: 1a577a30c282691479cac6eff50b108e, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 0.46709293
+      value: 0.46709287
       objectReference: {fileID: 0}
     - target: {fileID: -7823293702887809713, guid: 1a577a30c282691479cac6eff50b108e, type: 3}
       propertyPath: m_AABB.m_Extent.z
@@ -36824,7 +36841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1a577a30c282691479cac6eff50b108e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 1a577a30c282691479cac6eff50b108e, type: 3}
       propertyPath: m_Controller
@@ -39199,6 +39216,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5576606286073255814, guid: 1a577a30c282691479cac6eff50b108e, type: 3}
   m_PrefabInstance: {fileID: 1719306700}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1828082006 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5581954863045594850, guid: 1a577a30c282691479cac6eff50b108e, type: 3}
+  m_PrefabInstance: {fileID: 1719306700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!136 &1828082007
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -39209,8 +39231,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.35
-  m_Height: 0.35
+  m_Radius: 0.25
+  m_Height: 0.3
   m_Direction: 1
   m_Center: {x: 0, y: 0.25, z: 0.1}
 --- !u!1 &1831658134
