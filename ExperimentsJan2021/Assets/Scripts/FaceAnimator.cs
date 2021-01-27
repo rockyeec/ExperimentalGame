@@ -10,11 +10,11 @@ public class FaceAnimator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            animator.Play("Angry Face");
+            animator.CrossFade("Angry Face", 3.75f);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            animator.Play("Normal Face");
+            animator.CrossFade("Normal Face", 3.75f);
         }
     }
 }
