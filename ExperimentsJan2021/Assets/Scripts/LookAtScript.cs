@@ -11,6 +11,6 @@ public class LookAtScript : MonoBehaviour
     private void OnAnimatorIK(int layerIndex)
     {
         animator.SetLookAtPosition(target.position);
-        animator.SetLookAtWeight(1.0f, 0.25f, 0.25f, 0.5f);
+        animator.SetLookAtWeight(1.0f, 0.75f, 0.75f, 0.5f);
     }
 }

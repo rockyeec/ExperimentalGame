@@ -76,4 +76,21 @@ public static class Extensions
         }
         return index %= max;
     }
+
+    public static bool IsLonger(this float value, Vector3 pointA, Vector3 pointB)
+    {
+        return value * value > (pointA - pointB).sqrMagnitude;
+    }
+
+    public static float SmootherStep(this float t)
+    {
+        return t * t * t * (t * (6.0f * t - 15.0f) + 10.0f);
+    }
+
+    public static Vector3 QuadraticCurve(this Vector3 a, Vector3 b, Vector3 c, float t)
+    {
+        Vector3 ab = Vector3.LerpUnclamped(a, b, t);
+        Vector3 bc = Vector3.LerpUnclamped(b, c, t);
+        return Vector3.LerpUnclamped(ab, bc, t);
+    }
 }
