@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HorseIk : MonoBehaviour
 {
-    [SerializeField] float weight = 0.5f;
     [SerializeField] Animator animator = null;
 
     [SerializeField] Transform hips = null;
@@ -17,10 +16,10 @@ public class HorseIk : MonoBehaviour
     float upperChestHeight = 0.0f;
     float bodyLength = 0.0f;
 
-    Vector3 hipsOriPos;
-    Vector3 chestOriPos;
-    Quaternion hipsOriRot;
-    Quaternion chestOriRot;
+    Vector3 hipsOriLocPos;
+    Vector3 hipsOriLocEul;
+    readonly Vector3[] armsOriLocEul = new Vector3[2];
+    readonly Vector3[] legsOriLocEul = new Vector3[2];
 
 
     private void Awake()
@@ -29,47 +28,58 @@ public class HorseIk : MonoBehaviour
         upperChestHeight = transform.InverseTransformPoint(upperChest.position).y;
         bodyLength = Vector3.Distance(transform.InverseTransformPoint(hips.position), transform.InverseTransformPoint(upperChest.position));
 
-        
+        hipsOriLocPos = hips.localPosition;
+        hipsOriLocEul = hips.localEulerAngles;
+        for (int i = 0; i < 2; i++)
+        {
+            armsOriLocEul[i] = arms[i].localEulerAngles;
+            legsOriLocEul[i] = legs[i].localEulerAngles;
+        }
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
-        if (animator.GetFloat("moveZ") < 0.02f)
-        {
-            HandleHips();
-            //HandleUpperChest();
-        }
+        HandleHips();
     }
 
 
     void HandleHips()
     {
-        Ray ray = new Ray(hips.position + 0.5f * hipsHeight * Vector3.up, Vector3.down);
-        if (Physics.Raycast(ray, out RaycastHit hit, hipsHeight * 2.0f, 1 << 0))
+        if (Physics.Raycast(
+                hips.position + 0.5f * hipsHeight * Vector3.up,
+                Vector3.down,
+                out RaycastHit hipsHit,
+                hipsHeight * 2.0f,
+                1 << 0))
         {
-            hips.position = Vector3.LerpUnclamped(hips.position, hips.position.With(y: (hit.point + Vector3.up * hipsHeight).y), weight);
+            Vector3 hipsDeltaLocPos = hips.localPosition - hipsOriLocPos;
+            Vector3 hipsCorrectedLocPos = hips.parent.InverseTransformPoint(hips.position.With(y: (hipsHit.point + Vector3.up * hipsHeight).y));
+            hips.localPosition = hipsCorrectedLocPos + hipsDeltaLocPos;
 
-            hips.rotation = Quaternion.LookRotation(-hit.normal, transform.forward);
+            //Vector3 predictedChestPos = 
 
-            foreach (var item in legs)
-            {
-                item.rotation = Quaternion.LookRotation(-transform.forward, Vector3.down);
-            }
-        }
-    }
-    void HandleUpperChest()
-    {
-        Ray ray = new Ray(upperChest.position + 0.5f * upperChestHeight * Vector3.up, Vector3.down);
-        if (Physics.Raycast(ray, out RaycastHit hit, upperChestHeight * 2.0f, 1 << 0))
-        {
-            upperChest.position = Vector3.LerpUnclamped(upperChest.position, upperChest.position.With(y: (hit.point + Vector3.up * upperChestHeight).y), weight);
+           // if (Physics.Raycast(
+           //     upperChest.position + 0.5f * upperChestHeight * Vector3.up,
+           //     Vector3.down,
+           //     out RaycastHit chestHit,
+           //     upperChestHeight * 2.0f,
+           //     1 << 0))
+           // {
+           //     Vector3 targetDir = 
 
-            upperChest.rotation = Quaternion.LookRotation(-hit.normal, transform.forward);
+                Vector3 hipsDeltaEul = hips.localEulerAngles - hipsOriLocEul;
+                Vector3 hipsCorrectedEul = Quaternion.LookRotation(-hipsHit.normal, transform.forward).eulerAngles;
 
-            foreach (var item in arms)
-            {
-                item.rotation = Quaternion.LookRotation(-transform.forward, Vector3.down);
-            }
+
+                hips.eulerAngles = hipsCorrectedEul + hipsDeltaEul;
+
+           // }
+
+
+            //foreach (var item in legs)
+            //{
+            //    item.rotation = Quaternion.LookRotation(-transform.forward, Vector3.down);
+            //}
         }
     }
 }

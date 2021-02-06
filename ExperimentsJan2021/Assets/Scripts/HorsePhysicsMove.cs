@@ -92,7 +92,6 @@ public class HorsePhysicsMove : MonoBehaviour
         {
             transform.position = transform.position.With(y: hit.point.y);
             Debug.DrawRay(transform.position, hit.normal);
-            transform.rotation = Quaternion.LookRotation(transform.forward.With(y: 0.0f).normalized, hit.normal);
         }
     }
 }
