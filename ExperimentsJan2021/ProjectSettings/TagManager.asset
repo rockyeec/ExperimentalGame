@@ -11,6 +11,7 @@ TagManager:
   - 
   - Water
   - UI
+  - Body Part
   - 
   - 
   - 
@@ -35,8 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Character Controller
   m_SortingLayers:
   - name: Default
     uniqueID: 0
